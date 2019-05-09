@@ -15,6 +15,10 @@ build_script:
   - cmd: vcpkg.exe install jansson:x64-windows-static
   - cmd: vcpkg.exe install libmicrohttpd:x64-windows-static
   - cmd: vcpkg.exe install pthreads:x64-windows-static
+  - cmd: xcopy vcpkg c:\tools\vcpkg\ports /S /E /Y
+  - cmd: vcpkg.exe install yder:x64-windows-static
+  - cmd: vcpkg.exe install orcania:x64-windows-static
+  - cmd: vcpkg.exe install ulfius:x64-windows-static
   - cmd: cd app
   - cmd: mkdir build
   - cmd: cd build
