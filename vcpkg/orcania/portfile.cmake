@@ -7,7 +7,8 @@ vcpkg_from_github(OUT_SOURCE_PATH SOURCE_PATH
     REPO babelouest/orcania
     REF 99de53ab3006e16c8791392225d1a286d4f61e0a
     SHA512 845941b6f4a480693377e39eff50cbde56908c4f14fbc253ef221899c873ce8940b23de41985dc825d2a1c999ce45db888d274c7be439609bfff23f744738c81
-    HEAD_REF 1.3)
+    HEAD_REF 1.3
+    PATCHES add-config.patch)
 
 # Copy the header files
 file(GLOB HEADER_FILES ${SOURCE_PATH}/include/*.h)
