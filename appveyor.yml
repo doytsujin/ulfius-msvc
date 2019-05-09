@@ -11,8 +11,13 @@ cache:
   - vcpkg -> appveyor.yml
 
 build_script:
-  - cmd: vcpkg.exe install restinio:x64-windows-static
   - cmd: vcpkg.exe install curl:x64-windows-static
   - cmd: vcpkg.exe install jansson:x64-windows-static
   - cmd: vcpkg.exe install libmicrohttpd:x64-windows-static
   - cmd: vcpkg.exe install pthreads:x64-windows-static
+  - cmd: cd app
+  - cmd: mkdir build
+  - cmd: cd build
+  - cmd: cmake .. -DCMAKE_BUILD_TYPE=Release -DVCPKG_TARGET_TRIPLET=x64-windows-static -G"Visual Studio 15 2017 Win64"
+  - cmd: cmake --build . --target app --config Release
+  - cmd: cmake -- build .
