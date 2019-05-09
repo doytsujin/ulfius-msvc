@@ -1,0 +1,14 @@
+diff --git a/include/ulfius-cfg.h b/include/ulfius-cfg.h
+new file mode 100644
+index 0000000..9f7add8
+--- /dev/null
++++ b/include/ulfius-cfg.h
+@@ -0,0 +1,8 @@
++#ifndef _ULFIUS_CFG_H_
++#define _ULFIUS_CFG_H_
++
++#define ULFIUS_VERSION 2.6
++#define U_DISABLE_GNUTLS
++#define U_DISABLE_WEBSOCKET
++
++#endif

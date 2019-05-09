@@ -1,0 +1,18 @@
+diff --git a/include/ulfius.h b/include/ulfius.h
+index 2eee212..a60eff0 100644
+--- a/include/ulfius.h
++++ b/include/ulfius.h
+@@ -57,11 +57,11 @@
+ #endif
+ 
+ /** Angharad libraries **/
+-#include <orcania.h>
++#include <orcania/orcania.h>
+ 
+ /** To disable all yder log messages, this flag must be enabled **/
+ #ifndef U_DISABLE_YDER
+-  #include <yder.h>
++  #include <yder/yder.h>
+ #else
+ 
+ #define Y_LOG_MODE_NONE     0
