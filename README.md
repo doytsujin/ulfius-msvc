@@ -4,6 +4,10 @@
 
 Example project to build [ulfius](https://github.com/babelouest/ulfius) on the **Visual Studio 2017 (x86/x64)** platform.
 
+## What is ulfius?
+
+Web Framework to build REST APIs, Webservices or any HTTP endpoint in C language. Can stream large amount of data, integrate JSON data with Jansson, and create websocket services.
+
 ## Prerequisites
 
 The following prerequisites required to compile ulfius on the Windows platform.
@@ -15,13 +19,13 @@ The following prerequisites required to compile ulfius on the Windows platform.
 
 **1. Instal vcpkg**
 
-Follow the [README.md](https://github.com/microsoft/vcpkg/blob/master/README.md) to install vcpkg. 
+Follow the [README.md](https://github.com/microsoft/vcpkg/blob/master/README.md) to install the vcpkg. 
 
 **2. Set VCPKG_ROOT**
 
 It's required to to set `VCPKG_ROOT` enviorment variable to vcpkg installation directory e.g. *C:\tools\vcpkg*
 
-**3. Copy ulfius, yder and orcania to vcpkg's port directory**
+**3. Copy ulfius, yder and orcania packages to vcpkg's port directory**
 ```
 git clone https://github.com/webfolderio/ulfius-msvc.git
 cd ulfius-msvc
@@ -48,8 +52,20 @@ cmake -- build .
 ### Build with IDE
 
 * Make sure that [Visual C++ Tools for CMake](https://docs.microsoft.com/tr-tr/cpp/build/cmake-projects-in-visual-studio?view=vs-2017) is installed to your IDE.
-* File -> Open -> CMake..
+* File -> Open -> CMake...
 * Select the [example\CMakeLists.txt](https://github.com/webfolderio/ulfius-msvc/blob/master/example/CMakeLists.txt) file
 
 ### How it is tested
 This project regularly built and tested on [Appveyor platform](https://ci.appveyor.com/project/WebFolder/ulfius-msvc).
+
+### x86 Support
+
+Use **x86-windows-static** vcpkg triplet and **Visual Studio 15 2017** CMake generator to build for x86 platform.
+
+### Visual Studio 2015/2019
+
+This example project have never been built with Visual Studio 2015/2019 but these steps should also work for them.
+
+### GnuTLS & WebSocket
+
+Unfortunately ulfius Windows port does not support GnuTLS and WebSocket.
