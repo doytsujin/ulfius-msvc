@@ -1,0 +1,15 @@
+version: 1.0.'{build}'
+
+image:
+ - Visual Studio 2017
+
+configuration: Release
+
+platform: x64
+
+cache:
+  - vcpkg -> appveyor.yml
+
+build_script:
+  - cmd: build-86.bat
+  - cmd: build-x64.bat

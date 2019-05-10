@@ -14,7 +14,7 @@ vcpkg_from_github(OUT_SOURCE_PATH SOURCE_PATH
 # Copy the header files
 file(GLOB HEADER_FILES ${SOURCE_PATH}/include/*.h)
 file(COPY ${HEADER_FILES}
-     DESTINATION ${CURRENT_PACKAGES_DIR}/include/orcania)
+     DESTINATION ${CURRENT_PACKAGES_DIR}/include)
 
 # Copy the source files
 file(GLOB SRC_FILES ${SOURCE_PATH}/src/*.c)

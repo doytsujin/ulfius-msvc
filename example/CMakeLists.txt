@@ -1,35 +1,30 @@
-cmake_minimum_required(VERSION 3.8.0)
+cmake_minimum_required(VERSION 3.8)
 
 if(DEFINED ENV{VCPKG_ROOT} AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
   set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
       CACHE STRING "")
 endif()
 
-project(app)
+project(example)
 
-set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/CMake")
-
-set(VCPKG_TARGET_ARCHITECTURE x64)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 set(CMAKE_SUPPRESS_REGENERATION ON)
 set(CMAKE_C_STANDARD 11)
 
-find_package(pthreads CONFIG REQUIRED)
 find_package(Jansson CONFIG REQUIRED)
 find_package(CURL REQUIRED)
 find_package(ZLIB REQUIRED)
-
-find_path(YDER_INCLUDE_DIR yder/yder.h)
-find_path(ORCANIA_INCLUDE_DIR orcania/orcania.h)
-find_path(ULFIUS_INCLUDE_DIR ulfius/ulfius.h)
+if (MSVC)
+  find_package(pthreads CONFIG REQUIRED)
+endif()
 
 find_library(MICROHTTPD_LIBRARY libmicrohttpd REQUIRED)
 
-file(GLOB_RECURSE SRC_FILES
-  "src/*.h"
-  "src/*.c"
-)
+find_path(YDER_INCLUDE_DIR yder.h)
+find_path(ORCANIA_INCLUDE_DIR orcania.h)
+find_path(ULFIUS_INCLUDE_DIR ulfius.h)
 
+file(GLOB_RECURSE SRC_FILES "src/*.h" "src/*.c")
 file(GLOB_RECURSE YDER_SRC_FILES "${YDER_INCLUDE_DIR}/*.c")
 file(GLOB_RECURSE ORCANIA_SRC_FILES "${ORCANIA_INCLUDE_DIR}/*.c")
 file(GLOB_RECURSE ULFIUS_SRC_FILES "${ULFIUS_INCLUDE_DIR}/*.c")
@@ -38,4 +33,8 @@ add_executable(server ${YDER_SRC_FILES} ${ORCANIA_SRC_FILES} ${ULFIUS_SRC_FILES}
 
 target_include_directories(server PRIVATE ${MICROHTTPD_LIBRARY} ${YDER_INCLUDE_DIR} ${ORCANIA_INCLUDE_DIR} ${ULFIUS_INCLUDE_DIR} ${CURL_INCLUDE_DIRS})
 
-target_link_libraries(server PRIVATE crypt32 wsock32 ws2_32 jansson ${MICROHTTPD_LIBRARY} ${CURL_LIBRARIES} ZLIB::ZLIB pthreads)
+if (MSVC)
+  target_link_libraries(server PRIVATE crypt32 wsock32 ws2_32 pthreads)
+endif()
+
+target_link_libraries(server PRIVATE ${MICROHTTPD_LIBRARY} ${CURL_LIBRARIES} jansson ZLIB::ZLIB)

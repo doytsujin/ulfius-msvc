@@ -1,5 +1,5 @@
 {
-  "_comment": "app build settings",
+  "_comment": "example ulfius application build settings",
   "environments": [
     {
       "BuildDir": "${workspaceRoot}\\build"

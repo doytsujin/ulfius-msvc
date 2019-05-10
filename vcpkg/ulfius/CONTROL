@@ -1,3 +1,4 @@
 Source: ulfius
 Version: 2.6
 Description: Web Framework to build REST APIs, Webservices or any HTTP endpoint in C language
+Build-Depends: yder, libmicrohttpd, jansson, curl, pthreads (windows)
