@@ -3,9 +3,15 @@ version: 1.0.'{build}'
 image:
  - Visual Studio 2017
 
-configuration: Release
+configuration:
+  - Release
 
-platform: x64
+platform:
+  - x86
+  - x64
+
+environment:
+  VCPKG_ROOT: C:\tools\vcpkg
 
 cache:
   - vcpkg -> appveyor.yml
