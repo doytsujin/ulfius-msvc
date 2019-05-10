@@ -17,5 +17,6 @@ before_build:
   - cmd: git pull
 
 build_script:
+  - cmd: cd %APPVEYOR_BUILD_FOLDER%
   - cmd: build-x86.bat
   - cmd: build-x64.bat
