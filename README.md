@@ -28,12 +28,12 @@ cd ulfius-msvc
 xcopy vcpkg %VCPKG_ROOT%\ports /S /E /Y
 ```
 
-**4. Install ulfius package**
+**4. Install the ulfius package**
 ```
 vcpkg install ulfius:x64-windows-static
 ```
 
-Note: [Third-party](https://github.com/webfolderio/ulfius-msvc/blob/master/vcpkg/ulfius/CONTROL#L4) dependencies will be installed by vcpkg.
+Note: *[Third-party](https://github.com/webfolderio/ulfius-msvc/blob/master/vcpkg/ulfius/CONTROL#L4) dependencies will be installed by vcpkg*.
 
 **5. Build the example project**
 ```
