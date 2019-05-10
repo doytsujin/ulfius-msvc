@@ -11,5 +11,5 @@ cache:
   - vcpkg -> appveyor.yml
 
 build_script:
-  - cmd: build-86.bat
+  - cmd: build-x86.bat
   - cmd: build-x64.bat
