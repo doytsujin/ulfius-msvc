@@ -9,9 +9,6 @@ platform: x64
 environment:
   VCPKG_ROOT: C:\tools\vcpkg
 
-cache:
-  - C:\Tools\vcpkg\installed -> appveyor.yml
-
 before_build:
   - cmd: cd %VCPKG_ROOT%
   - cmd: git pull --quiet
