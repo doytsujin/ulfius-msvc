@@ -64,7 +64,7 @@ Use **x86-windows-static** vcpkg triplet and **Visual Studio 15 2017** CMake gen
 
 ### Visual Studio 2015/2019
 
-This example project have never been built with Visual Studio 2015/2019 but these steps should also work for them.
+This example project have never been built with Visual Studio 2015/2019 but installation steps should also work for them.
 
 ### GnuTLS & WebSocket
 
