@@ -52,3 +52,5 @@ Mkfile.old
 dkms.conf
 /app/build
 /app/.vs
+/example/build-x64
+/example/build-x86

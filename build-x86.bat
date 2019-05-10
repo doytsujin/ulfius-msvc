@@ -1,7 +1,7 @@
 set curdir=%cd%
 cd /D "%~dp0"
 
-xcopy \vcpkg c:\tools\vcpkg\ports /S /E /Y
+xcopy vcpkg %VCPKG_ROOT%\ports /S /E /Y
 
 vcpkg install ulfius:x86-windows-static
 
