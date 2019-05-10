@@ -33,7 +33,7 @@ xcopy vcpkg %VCPKG_ROOT%\ports /S /E /Y
 vcpkg install ulfius:x64-windows-static
 ```
 
-Note: Required [third-party](https://github.com/webfolderio/ulfius-msvc/blob/master/vcpkg/ulfius/CONTROL#L4) dependencies will be installed by vcpkg.
+Note: [Third-party](https://github.com/webfolderio/ulfius-msvc/blob/master/vcpkg/ulfius/CONTROL#L4) dependencies will be installed by vcpkg.
 
 **5. Build the example project**
 ```
@@ -44,6 +44,12 @@ cmake .. -DCMAKE_BUILD_TYPE=Release -DVCPKG_TARGET_TRIPLET=x64-windows-static -G
 cmake --build . --target server --config Release
 cmake -- build .
 ```
+
+### Build with IDE
+
+* Make sure that [Visual C++ Tools for CMake](https://docs.microsoft.com/tr-tr/cpp/build/cmake-projects-in-visual-studio?view=vs-2017) is installed to your IDE.
+* File -> Open -> CMake..
+* Select the [example\CMakeLists.txt](https://github.com/webfolderio/ulfius-msvc/blob/master/example/CMakeLists.txt) file
 
 ### How it is tested
 This project regularly built and tested on [Appveyor platform](https://ci.appveyor.com/project/WebFolder/ulfius-msvc).
