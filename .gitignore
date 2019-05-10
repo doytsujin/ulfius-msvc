@@ -54,3 +54,5 @@ dkms.conf
 /app/.vs
 /example/build-x64
 /example/build-x86
+/example/.vs
+/example/build

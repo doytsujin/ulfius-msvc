@@ -10,11 +10,11 @@ environment:
   VCPKG_ROOT: C:\tools\vcpkg
 
 cache:
-  - vcpkg -> appveyor.yml
+  - C:\Tools\vcpkg\installed -> appveyor.yml
 
 before_build:
   - cmd: cd %VCPKG_ROOT%
-  - cmd: git pull
+  - cmd: git pull --quiet
 
 build_script:
   - cmd: cd %APPVEYOR_BUILD_FOLDER%
