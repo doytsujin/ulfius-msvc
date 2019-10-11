@@ -5,14 +5,16 @@ set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/ulfius)
 
 vcpkg_from_github(OUT_SOURCE_PATH SOURCE_PATH
     REPO babelouest/ulfius
-    REF 845546fac730ccbe5862f533ba4d4a17e2489f19
-    SHA512 de64d1dd7026179d0457f3b050e6edff50cd1f945b21376c366b6b9501bdc3fc7e2083f2809c7e18e37827c8a802979f4a403cb2e1a11c94e9b8ad8950e4e32c
-    HEAD_REF 2.6
-    PATCHES add-config.patch)
+    REF c75c4b8ad7c3aae99da6bf25bd6bc1dbbe7dfae4
+    SHA512 1d0e77a86ee780a2c674bea87cc5abd86c18e5080b036b70a2c94bd8e03fc32a097bcac6eaec45d6d88bc552f0914dcbe8d3d8664cc1ea6fdfcb4c9811c2988d
+    HEAD_REF master)
 
 # Copy the header files
 file(GLOB HEADER_FILES ${SOURCE_PATH}/include/*.h)
 file(COPY ${HEADER_FILES}
+     DESTINATION ${CURRENT_PACKAGES_DIR}/include)
+
+file(COPY ${CMAKE_CURRENT_LIST_DIR}/ulfius-cfg.h
      DESTINATION ${CURRENT_PACKAGES_DIR}/include)
 
 # Copy the source files

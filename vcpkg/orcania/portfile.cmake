@@ -5,15 +5,16 @@ set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/orcania)
 
 vcpkg_from_github(OUT_SOURCE_PATH SOURCE_PATH
     REPO babelouest/orcania
-    REF 99de53ab3006e16c8791392225d1a286d4f61e0a
-    SHA512 845941b6f4a480693377e39eff50cbde56908c4f14fbc253ef221899c873ce8940b23de41985dc825d2a1c999ce45db888d274c7be439609bfff23f744738c81
-    HEAD_REF 1.3
-    PATCHES add-config.patch
-            fix-orcania.patch)
+    REF 9ed52eeb5419f65350a59542a7eb2532e97c2f84
+    SHA512 3acacf5f0fa3dc04b7e38d0fcec861d776da8d3b7c7d0667a79502c4eb3236d42c17095f742d8581b4fcc54030cba5aa13e07ccd5afeb35d8476edff0333ca58
+    HEAD_REF master)
 
 # Copy the header files
 file(GLOB HEADER_FILES ${SOURCE_PATH}/include/*.h)
 file(COPY ${HEADER_FILES}
+     DESTINATION ${CURRENT_PACKAGES_DIR}/include)
+
+file(COPY ${CMAKE_CURRENT_LIST_DIR}/orcania-cfg.h
      DESTINATION ${CURRENT_PACKAGES_DIR}/include)
 
 # Copy the source files

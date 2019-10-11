@@ -5,14 +5,16 @@ set(SOURCE_PATH ${CURRENT_BUILDTREES_DIR}/src/yder)
 
 vcpkg_from_github(OUT_SOURCE_PATH SOURCE_PATH
     REPO babelouest/yder
-    REF dadb50c0d7e971cc4bd20301089350a114ac2102
-    SHA512 a4268699899f1647074e1fbea1c74170d36f2893ca0c1ad0f62613ed03c3d885a2f83db0ee0e98091ab004f0806efbbf4a7e9299fe13cfd2fe4c24fed15a6074
-    HEAD_REF master
-    PATCHES add-config.patch)
+    REF 64e5dff655b6885c4717479244735ebcca02203e
+    SHA512 dcf38a77a9d44455e90887e60fc974aee2db4ac8fed0ccf61741374bc9b50bb164afbb48874b4b7d2f4e4b6d051226c78521bc0dcb0a5d2804da70a241860bce
+    HEAD_REF master)
 
 # Copy the header files
 file(GLOB HEADER_FILES ${SOURCE_PATH}/include/*.h)
 file(COPY ${HEADER_FILES}
+     DESTINATION ${CURRENT_PACKAGES_DIR}/include)
+
+file(COPY ${CMAKE_CURRENT_LIST_DIR}/yder-cfg.h
      DESTINATION ${CURRENT_PACKAGES_DIR}/include)
 
 # Copy the source files
